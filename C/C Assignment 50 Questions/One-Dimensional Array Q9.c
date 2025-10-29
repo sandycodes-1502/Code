@@ -11,10 +11,10 @@ int main() {
     for(int i=0; i<n; i++) {
         arr2[i] = arr1[i];
     }
-    printf("Copied array elements are: ");
+    printf("Copied array elements are: [ ");
     for(int i=0; i<n; i++) {
         printf("%d ", arr2[i]);
     }
-    printf("\n");
+    printf("]\n");
     return 0;
 }
