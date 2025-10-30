@@ -15,11 +15,11 @@ def print_shape_of_you_lyrics():
     delays = [0.8, 0.6, 0.7, 0.7, 0.9, 0.8, 1.0, 1.2]
     print("Shape of You: \n")
     for line, delay in zip(lyrics, delays):
+        for char in line:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.075)
         print(line)
         time.sleep(delay)
     
-    
-if __name__ == "__main__":
-    print_shape_of_you_lyrics()
-    
-    
+print_shape_of_you_lyrics()
