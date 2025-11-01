@@ -4,7 +4,8 @@
 #include <stdexcept>
 #include <iomanip>
 using namespace std;
-class Employee {
+
+class Employee { 
 public: 
     int id;
     string name;
