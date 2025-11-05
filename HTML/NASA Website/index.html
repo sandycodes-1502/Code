@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AstraForge Initiative — Space Exploration Agency</title>
+  <meta name="description" content="AstraForge Initiative — bold civilian-led space exploration, research, and outreach.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#020617; --bg2:#071033; --accent:#6EE7B7; --accent-2:#7C5CFF; --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.03); --muted: rgba(255,255,255,0.6);
+      --glass-border: rgba(255,255,255,0.06);
+      font-family: 'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:#eaf2ff}
+    .wrap{max-width:1100px;margin:36px auto;padding:28px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 6px 18px rgba(124,92,255,0.16)}
+    .logo svg{width:46px;height:46px}
+    h1{font-size:1.15rem;margin:0}
+    p.tag{margin:0;color:var(--muted);font-size:0.9rem}
+    nav{display:flex;gap:12px}
+    nav a{color:inherit;text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    nav a:hover{background:var(--glass);border:1px solid var(--glass-border)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;margin-top:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:28px;border-radius:18px;border:1px solid var(--glass-border)}
+    .eyebrow{color:var(--accent);font-weight:700;letter-spacing:1px}
+    .hero h2{margin:12px 0 6px;font-size:2.2rem}
+    .hero p{color:var(--muted);line-height:1.5}
+    .cta-row{display:flex;gap:12px;margin-top:18px}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021029;padding:10px 14px;border-radius:12px;border:none;font-weight:700;cursor:pointer}
+    .btn-outline{background:transparent;border:1px solid var(--glass-border);padding:10px 14px;border-radius:12px}
+
+    /* Right panel: quick stats and countdown */
+    .panel{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid var(--glass-border)}
+    .stats{display:flex;gap:12px;justify-content:space-between;margin-bottom:12px}
+    .stat{flex:1;text-align:center}
+    .stat h3{margin:0;font-size:1.25rem}
+    .stat p{margin:6px 0 0;color:var(--muted);font-size:0.85rem}
+
+    /* Program cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:24px}
+    .card{padding:18px;border-radius:12px;background:var(--card);border:1px solid var(--glass-border)}
+    .card h4{margin:0 0 8px}
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+    .project{padding:14px;border-radius:10px;border:1px solid var(--glass-border);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
+    .project h5{margin:0 0 6px}
+
+    /* Team row */
+    .team{display:flex;gap:12px;margin-top:22px}
+    .person{background:var(--card);padding:12px;border-radius:10px;flex:1;text-align:center}
+    .person img{width:72px;height:72px;border-radius:10px;object-fit:cover}
+
+    /* Footer */
+    footer{margin-top:36px;text-align:center;color:var(--muted);font-size:0.9rem;padding:18px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .wrap{padding:16px}
+    }
+
+    /* starfield overlay */
+    #stars{position:fixed;inset:0;z-index:-1}
+
+    /* little helpers */
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);font-weight:700}
+  </style>
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <div class="wrap" role="main">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- stylized rocket / forge icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <path d="M12 2c1.2 0 3 1 4.6 2.6 1.6 1.6 2.6 3.4 2.6 4.6 0 .8-.4 1.5-1.1 2.2l-1.6 1.6c-.8.8-2 1.4-3.3 1.4-.8 0-1.6-.2-2.2-.6L8 14l-.8 2.8C6.8 17.9 6 18.6 5 19.6c-1 .9-1.7 1.7-2 2.9C3 23 3.3 23.5 3.8 23.8c.5.3 1.2.2 1.8-.3 1.1-.8 2-1.5 2.9-2.5L9 19l2.2-1.9C12.1 16.7 12.6 16 13 15.2c.4-.8 1-1.4 1.7-2l1.6-1.6C17.5 9.9 18 9 18 8c0-1.2-1-3-2.6-4.6C14 2 13 2 12 2z" fill="white" opacity="0.95"/>
+          </svg>
+        </div>
+        <div>
+          <h1>AstraForge Initiative</h1>
+          <p class="tag">Bold civilian-led space exploration • Research • Outreach</p>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#mission">Mission</a>
+        <a href="#programs">Programs</a>
+        <a href="#projects">Projects</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="pill">Join</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <div class="eyebrow">LAUNCHING TOMORROW</div>
+        <h2 id="hero-title">AstraForge Initiative — ignite curiosity, craft new worlds</h2>
+        <p>We design small, nimble, high-impact missions — from university-built cubesats to ambitious public outreach programs. We combine open hardware, transparent data, and collaborative teams to make space accessible and accountable.</p>
+        <div class="cta-row">
+          <button class="btn" id="watchBtn">Watch Mission</button>
+          <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Volunteer</button>
+        </div>
+
+        <div class="grid" style="margin-top:18px">
+          <div class="card">
+            <h4>Our Focus</h4>
+            <p class="muted">Small satellite tech, atmospheric science, deep-education, and community-built instrumentation.</p>
+          </div>
+          <div class="card">
+            <h4>Open Data</h4>
+            <p class="muted">All mission designs and telemetry are released under open-source licenses whenever possible.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel" aria-labelledby="countdown">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>Next Flight</strong>
+          <span class="muted">Liftoff window: <strong>UTC 2026-03-18 04:20</strong></span>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="stats">
+            <div class="stat"><h3 id="days">00</h3><p>Days</p></div>
+            <div class="stat"><h3 id="hours">00</h3><p>Hours</p></div>
+            <div class="stat"><h3 id="mins">00</h3><p>Mins</p></div>
+          </div>
+          <div class="muted" style="font-size:0.9rem">Status: <strong id="status">Preparing payload</strong></div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid var(--glass-border);margin:12px 0">
+        <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
+          <div>
+            <div class="muted">Active projects</div>
+            <div style="font-weight:700">4 ongoing</div>
+          </div>
+          <div style="text-align:right">
+            <div class="muted">Community</div>
+            <div style="font-weight:700">12k members</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="programs" aria-labelledby="programs-title">
+      <h3 id="programs-title" style="margin-top:24px">Programs</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>CubeForge — Student CubeSat Program</h4>
+          <p class="muted">Hands-on satellite design and mission ops mentorship for undergrads. Build, test, and fly.</p>
+        </div>
+        <div class="card">
+          <h4>Sky Classroom</h4>
+          <p class="muted">Free modular curriculum and live workshops that help schools run simple balloon or rocket experiments.</p>
+        </div>
+        <div class="card">
+          <h4>Atmos Lab</h4>
+          <p class="muted">Low-cost sensors and open datasets for monitoring local air and upper-atmosphere phenomena.</p>
+        </div>
+        <div class="card">
+          <h4>Open Launch Club</h4>
+          <p class="muted">Community-run launch party & flight-ops — learn telemetry, ground-station ops, and mission control etiquette.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h3 style="margin-top:24px">Selected Projects</h3>
+      <div class="projects">
+        <div class="project">
+          <h5>Project: LUMINA — stratospheric imaging</h5>
+          <p class="muted">High-altitude balloon network capturing multi-spectral imagery for cloud and aerosol studies.</p>
+        </div>
+        <div class="project">
+          <h5>Project: IRIS-1 CubeSat</h5>
+          <p class="muted">6U cubesat carrying an infrared payload to measure urban heat islands and energy loss patterns.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <div class="card" style="flex:1;min-width:220px">
+          <h4>Citizen Science Portal</h4>
+          <p class="muted">Upload observations, browse processed datasets, and contribute to mission analysis.</p>
+        </div>
+        <div class="card" style="min-width:220px">
+          <h4>Design Library</h4>
+          <p class="muted">Open-source CAD files, test procedures, and part lists for reproducibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <h3 style="margin-top:24px">Team & Collaborators</h3>
+      <div class="team">
+        <div class="person">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcd" alt="Team member">
+          <div style="margin-top:10px;font-weight:700">Dr. Rhea Kapoor</div>
+          <div class="muted">Chief Systems Engineer</div>
+        </div>
+        <div class="person">
+          <img src="https://images.unsplash.com/photo-1531123414780-fc6ea4a0f2b0?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=efgh" alt="Team member">
+          <div style="margin-top:10px;font-weight:700">Amir Patel</div>
+          <div class="muted">Flight Ops Lead</div>
+        </div>
+        <div class="person">
+          <img src="https://images.unsplash.com/photo-1545996124-6b5c24f9c3b1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=ijkl" alt="Team member">
+          <div style="margin-top:10px;font-weight:700">Sana Iqbal</div>
+          <div class="muted">Community & Outreach</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h3 style="margin-top:24px">Get involved</h3>
+      <p class="muted">Volunteer, collaborate, or just nerd out with us. Drop your info below — no spam, just launch updates.</p>
+      <form onsubmit="event.preventDefault();submitForm()" style="margin-top:12px;display:grid;gap:10px;max-width:700px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input id="name" placeholder="Your name" required style="flex:1;padding:10px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:inherit">
+          <input id="email" placeholder="Email" type="email" required style="flex:1;padding:10px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:inherit">
+        </div>
+        <textarea id="message" placeholder="Why you want to join (short)" rows="4" style="padding:10px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:inherit"></textarea>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn" type="submit">Send</button>
+          <div id="formMsg" class="muted" style="font-size:0.95rem"></div>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">
+        <small>© <strong>AstraForge Initiative</strong> — Built for curious humans.</small>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    /* --- starfield --- */
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let w = canvas.width = innerWidth;
+    let h = canvas.height = innerHeight;
+    let stars = [];
+    function makeStars(){
+      stars = [];
+      for(let i=0;i<250;i++){
+        stars.push({x:Math.random()*w,y:Math.random()*h,z:Math.random()*1.2+0.2,r:Math.random()*1.1});
+      }
+    }
+    function drawStars(){
+      ctx.clearRect(0,0,w,h);
+      for(const s of stars){
+        const size = s.r * (s.z*1.8);
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255,255,255,'+(0.6*s.z)+')';
+        ctx.arc(s.x,s.y,size,0,Math.PI*2);
+        ctx.fill();
+        s.x += (s.z*0.25);
+        if(s.x>w+20){s.x=-20}
+      }
+    }
+    addEventListener('resize',()=>{w=canvas.width=innerWidth;h=canvas.height=innerHeight;makeStars()});
+    makeStars();
+    (function anim(){drawStars();requestAnimationFrame(anim)})();
+
+    /* --- simple countdown (demo target) --- */
+    const launchDate = new Date('2026-03-18T04:20:00Z').getTime(); // ISO UTC
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(0, launchDate - now);
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days*(1000*60*60*24);
+      const hours = Math.floor(diff/(1000*60*60));
+      diff -= hours*(1000*60*60);
+      const mins = Math.floor(diff/(1000*60));
+      document.getElementById('days').textContent = String(days).padStart(2,'0');
+      document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('mins').textContent = String(mins).padStart(2,'0');
+      const status = document.getElementById('status');
+      if(Date.now() < launchDate - 1000*60*60*24*7) status.textContent = 'Preparing payload';
+      else if(Date.now() < launchDate - 1000*60*60*24) status.textContent = 'Final checks';
+      else status.textContent = 'T - <24h — mission ready';
+    }
+    setInterval(tick,1000*30); tick();
+
+    /* --- form demo handler --- */
+    function submitForm(){
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      if(!name || !email){document.getElementById('formMsg').textContent = 'Name and email required.';return}
+      document.getElementById('formMsg').textContent = 'Thanks, we\'ll ping you with launch beta access!';
+      document.getElementById('name').value = '';document.getElementById('email').value='';document.getElementById('message').value='';
+    }
+
+    /* --- watch button demo modal --- */
+    document.getElementById('watchBtn').addEventListener('click',()=>{
+      alert('Demo: open mission live stream (placeholder). In real site, hook a video player or embed telemetry).');
+    });
+
+    /* small accessibility tweak: keyboard legend */
+    document.addEventListener('keydown',(e)=>{if(e.key === '?'){alert('Tip: Press the "Join" pill or scroll to the contact form to volunteer!')}})
+  </script>
+</body>
+</html>
