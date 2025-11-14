@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// Function to calculate Fibonacci number using recursion
 int fibonacci(int num) {
     if (num <= 0)
         return 0;
