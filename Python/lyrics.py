@@ -3,7 +3,7 @@ import sys
 
 def print_lyrics():
     lyrics = [
-        "Sambhaal ke rakha wo phool mera tu",
+        "Sambhaal ke rakha wo phool mera tu", 
         "Meri shayari mein zaroor raha tu",
         "Jo aakhon mein pyaari si duniya basaayi",
         "Wo duniya bhi tha tu, wo lamha bhi tha tu",

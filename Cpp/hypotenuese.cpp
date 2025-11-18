@@ -3,8 +3,9 @@
 using namespace std;
 
 int hypotenuese(int a, int b){
-    return sqrt((a*a) + (b*b));
-}
+    int hypo = pow((a^a + b^b) , 0.5);
+    return hypo;  
+}  
 
 int main(){
     int a, b, hypo;

@@ -7,7 +7,7 @@ int main() {
     auto int autoVar = 3;        
     register int regVar = 2;   
     printf("Global Variable: %d\n", globalVar);
-    printf("Static Variable: %d\n", staticVar);
+    printf("Static Variable: %d\n", staticVar); 
     printf("Automatic Variable: %d\n", autoVar);
     printf("Register Variable: %d\n", regVar);
 
