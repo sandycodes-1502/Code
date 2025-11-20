@@ -10,6 +10,7 @@ struct Node
 int main(){
     struct Node* head = NULL;
     int choice;
+Start:
     printf("Enter your choice:\n");
     printf("1. Insert Node at end\n2. Display List\n3. Exit\n");
     scanf("%d", &choice);
@@ -33,7 +34,7 @@ int main(){
             }
             printf("Node inserted.\n");
         }
-        break;
+        goto Start;
     case 2:
         {
             struct Node* temp = head;
@@ -48,7 +49,7 @@ int main(){
                 printf("NULL\n");
             }
         }
-        break;
+        goto Start;
     
     case 3:
         printf("Exiting...\n");
@@ -56,7 +57,7 @@ int main(){
         return 0;
     
     default:
-        break;
+        goto Start;
     }
 
     return 0;
