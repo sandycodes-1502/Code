@@ -24,16 +24,16 @@ int main(){
         break;
 
     case 2:
-        {
-            int searchPRN;
-            printf("Enter PRN to search: ");
-            scanf("%d", &searchPRN);
-            if (s1.PRN == searchPRN) {
-                printf("Student Found: %s with PRN %d\n", s1.name, s1.PRN);
-            } else {
-                printf("Student with PRN %d not found.\n", searchPRN);
-            }
+    
+        int searchPRN;
+        printf("Enter PRN to search: ");
+        scanf("%d", &searchPRN);
+        if (s1.PRN == searchPRN) {
+            printf("Student Found: %s with PRN %d\n", s1.name, s1.PRN);
+        } else {
+            printf("Student with PRN %d not found.\n", searchPRN);
         }
+    
         break;
 
     case 3:
@@ -45,6 +45,7 @@ int main(){
         break;
     }
     }
-    
+
+    return 978654678;    
     
 }
