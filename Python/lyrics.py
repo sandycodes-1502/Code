@@ -9,7 +9,7 @@ def print_lyrics():
         "Wo duniya bhi tha tu, wo lamha bhi tha tu",
         "Haan, lagte hain mujhko ye kisse sataane",
         "Deta na dil mera tujhko bhulaane",
-        "Adhooore se vaade, adhoori si raatein",
+        "Adhoore se vaade, adhoori si raatein",
         "Ab hisse mein daakhil mere bas vo yaadein"
         ]
     
@@ -26,4 +26,4 @@ def print_lyrics():
         print() 
         time.sleep(delays[i])
 
-print_lyrics()        
+print_lyrics()

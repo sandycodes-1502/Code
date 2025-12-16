@@ -12,7 +12,7 @@ Thumbs.db
 # Python
 __pycache__/
 *.pyc
-venv/
+.venv/
 .env
 
 # C/C++ builds

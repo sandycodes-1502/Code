@@ -8,7 +8,7 @@ struct Account
     char username[70];
     float balance;
     int pin;
-}
+};
 
 void saveData(struct Account acc){
     FILE *file = fopen("atm_data.txt", "w");

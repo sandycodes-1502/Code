@@ -124,36 +124,167 @@
 // }
 
 //================================
+// #include <stdio.h>
+
+// int calcFibo(int num) {
+//     if (num < 0)
+//         return 0;           // invalid case
+//     if (num == 0)
+//         return 0;
+//     if (num == 1)
+//         return 1;
+//     return calcFibo(num - 1) + calcFibo(num - 2);
+// }
+
+// int calcFact(int num) {
+//     if (num < 0)
+//         return 0;           // invalid
+//     if (num == 0)
+//         return 1;           // 0! = 1
+//     return num * calcFact(num - 1);
+// }
+
+// int main() {
+//     int num;
+//     printf("Enter number: ");
+//     scanf("%d", &num);
+
+//     int fibonacci = calcFibo(num);
+//     int factorial = calcFact(num);
+
+//     printf("Factorial = %d\n", factorial);
+//     printf("Fibonacci = %d\n", fibonacci);
+
+//     return 0;
+// }
+
+// #include <stdio.h>
+
+// struct complex {
+//     float real, imaginary;
+// };
+
+// int main(){
+//     complex a, b, c;
+//     scanf("%f %f", &a.real, &a.imaginary);
+//     scanf("%f %f", &b.real, &b.imaginary);
+
+//     c.real = a.real + b.real;
+//     c.imaginary = a.imaginary + b.imaginary;
+//     printf("\n %.2f + %.2fi", c.real, c.imaginary);
+    
+//     return 0;
+// }
+
+// #include <stdio.h>
+
+// int main(){
+//     int num[10] = {1, 2, 4, 67, 56, 34, 87, 2, 123, 23};
+//     int max, min;
+//     max = num[0];
+//     min = num[0];
+
+//     for(int i=0; i<10; i++){
+//         if (max < num[i])
+//         {
+//             max = num[i];
+//         }
+//         if(min > num[i])
+//         {
+//             min = num[i];
+//         }
+//     }
+//     printf("Maximum: %d\n", max);
+//     printf("Minimum: %d\n", min);
+// }
+
+// #include <stdio.h>
+
+// int calcFibo(int num){
+//     if(num == 0){
+//         return 0;
+//     } else if(num == 1){
+//         return 1;
+//     } else{
+//         return calcFibo(num-1) + calcFibo(num-2);
+//     }
+// }
+
+// int main(){
+//     int n, fibo;
+//     printf("Enter a number: ");
+//     scanf("%d", &n);
+//     fibo = calcFibo(n);
+//     printf("Fibonacci %d: %d\n", n, fibo);
+// }
+
+// #include <stdio.h>
+
+// int factorial(int num){
+//     int fact = 0;
+//     if(num !=0 || num <0){
+//         for(int i=1; i  num; i++){
+//         fact *= i;
+//         }
+//     return fact;
+//     }else{
+//         return 0;
+//     }
+// }
+
+// int main(){
+//     int n, r;
+//     printf("Enter nCr: \nn: ");
+//     scanf("%d", &n);
+//     printf("\nr:");
+//     scanf("%d", &r);
+//     if(n < r){
+//         printf("Invalid nCr.");
+//         return 0;
+//     }
+//     int ans, nfact, rfact, nrfact;
+//     nfact = factorial(n);
+//     rfact = factorial(r);
+//     nrfact = factorial(n-r);
+//     ans = nfact / (rfact * nrfact);
+//     printf("%d C %d = %d", n, r, ans);
+// }
+
 #include <stdio.h>
 
-int calcFibo(int num) {
+int factorial(int num){
     if (num < 0)
-        return 0;           // invalid case
+        return 0;       // invalid
+    
     if (num == 0)
+        return 1;       // 0! = 1
+
+    int fact = 1;
+    for (int i = 1; i <= num; i++){
+        fact *= i;
+    }
+    return fact;
+}
+
+int main(){
+    int n, r;
+    printf("Enter nCr: \nn: ");
+    scanf("%d", &n);
+    printf("\nr: ");
+    scanf("%d", &r);
+
+    if(n < r){
+        printf("Invalid nCr.");
         return 0;
-    if (num == 1)
-        return 1;
-    return calcFibo(num - 1) + calcFibo(num - 2);
-}
+    }
 
-int calcFact(int num) {
-    if (num < 0)
-        return 0;           // invalid
-    if (num == 0)
-        return 1;           // 0! = 1
-    return num * calcFact(num - 1);
-}
+    int nfact = factorial(n);
+    int rfact = factorial(r);
+    int nrfact = factorial(n - r);
 
-int main() {
-    int num;
-    printf("Enter number: ");
-    scanf("%d", &num);
+    int ans = nfact / (rfact * nrfact);
 
-    int fibonacci = calcFibo(num);
-    int factorial = calcFact(num);
-
-    printf("Factorial = %d\n", factorial);
-    printf("Fibonacci = %d\n", fibonacci);
+    printf("%d C %d = %d", n, r, ans);
 
     return 0;
 }
