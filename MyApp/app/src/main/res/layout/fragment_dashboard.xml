@@ -3,13 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.BlankFragment">
+    tools:context=".fragments.DashboardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dashboardtext"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:gravity="center"/>
+        android:text="Dashboard"
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:layout_margin = "20dp"
+        android:textColor="#DD0C0C" />
 
 </FrameLayout>

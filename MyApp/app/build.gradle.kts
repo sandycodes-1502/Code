@@ -38,6 +38,8 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
+//        dataBinding = true
     }
 }
 
@@ -54,6 +56,7 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.material:material:1.13.0")
+    implementation(libs.androidx.activity)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

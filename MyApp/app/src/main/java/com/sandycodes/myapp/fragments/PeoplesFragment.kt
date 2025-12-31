@@ -1,0 +1,20 @@
+package com.sandycodes.myapp.fragments
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.sandycodes.myapp.R
+
+class PeoplesFragment : Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_peoples, container, false)
+        return view
+    }
+
+}

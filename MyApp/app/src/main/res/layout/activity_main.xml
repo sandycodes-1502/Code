@@ -15,8 +15,7 @@
         app:layout_constraintBottom_toTopOf="@id/textview2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview2"
@@ -25,7 +24,7 @@
         android:text="Hello World!"
         app:layout_constraintBottom_toTopOf="@id/textview3"
         app:layout_constraintEnd_toEndOf="@id/textview1"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/textview1"
         app:layout_constraintTop_toBottomOf="@id/textview1" />
 
@@ -41,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@id/textview2" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
@@ -49,17 +48,5 @@
         app:layout_constraintEnd_toEndOf="@id/textview3"
         app:layout_constraintStart_toStartOf="@id/textview3"
         app:layout_constraintTop_toBottomOf="@id/textview3" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentblank"
-        android:name="com.sandycodes.myapp.fragment.BlankFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/button1"
-        app:layout_constraintRight_toRightOf="@id/button1"
-        app:layout_constraintTop_toBottomOf="@id/button1" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
