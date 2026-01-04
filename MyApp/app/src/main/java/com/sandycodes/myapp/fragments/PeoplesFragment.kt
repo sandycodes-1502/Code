@@ -30,6 +30,12 @@ class PeoplesFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         updatePersonList(recyclerView)
 
+//        val gender = when (binding.genderGroup.checkedRadioButtonId) {
+//            R.id.radioMale -> "Male"
+//            R.id.radioFemale -> "Female"
+//            else -> "Not selected"
+//        }
+
         addPerson.setOnClickListener {
             createPerson(Person("Sandesh", "Pune", Gender.MALE.type)) {
                 updatePersonList(recyclerView)

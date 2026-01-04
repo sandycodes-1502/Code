@@ -69,6 +69,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("com.squareup.picasso:picasso:2.8")
 
     val room_version = "2.8.4"
     implementation("androidx.room:room-runtime:${room_version}")
