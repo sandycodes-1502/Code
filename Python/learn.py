@@ -117,6 +117,8 @@ print(type(name)) #
 #     words_without_vowels += i
 # print(words_without_vowels)
 
+"""
+
 c0 = int(input("Enter a number: "))
 steps = 0
 if c0 > 0:
@@ -134,3 +136,18 @@ if c0 > 0:
             print(c0)
             steps += 1
 print("Steps:", steps)
+
+"""
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+sum = a + b
+product = a * b
+subtraction = a - b
+division = a / b
+
+print("Sum:", sum)
+print("Product:", product)
+print("Subtraction:", subtraction)
+print("Division:", division)
