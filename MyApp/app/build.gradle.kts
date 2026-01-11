@@ -70,6 +70,9 @@ dependencies {
 
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
     implementation("com.squareup.picasso:picasso:2.8")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 
     val room_version = "2.8.4"
     implementation("androidx.room:room-runtime:${room_version}")

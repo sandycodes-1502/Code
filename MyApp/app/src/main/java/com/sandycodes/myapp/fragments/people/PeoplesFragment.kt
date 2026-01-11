@@ -1,9 +1,11 @@
-package com.sandycodes.myapp.fragments
+package com.sandycodes.myapp.fragments.people
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
@@ -18,29 +20,32 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PeoplesFragment : Fragment() {
+class PeoplesFragment : Fragment(), Contract.View {
+
+    private lateinit var presenter: Contract.Presenter
+    private lateinit var progressbar : ProgressBar
+    private lateinit var recyclerView : RecyclerView
+    private lateinit var addPerson: FloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_peoples, container, false)
-        val addPerson = view.findViewById<FloatingActionButton>(R.id.addperson)
+        addPerson = view.findViewById(R.id.addperson)
+        progressbar = view.findViewById(R.id.progressbar)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        updatePersonList(recyclerView)
+        recyclerView = view.findViewById(R.id.peoplerecyclerView)
+//        updatePersonList(recyclerView)
+        presenter = PeoplesPresenter(this@PeoplesFragment, PeoplesModel())
 
-//        val gender = when (binding.genderGroup.checkedRadioButtonId) {
-//            R.id.radioMale -> "Male"
-//            R.id.radioFemale -> "Female"
-//            else -> "Not selected"
+//        addPerson.setOnClickListener {
+//            createPerson(Person("Sandesh", "Pune", Gender.MALE.type)) {
+//                updatePersonList(recyclerView)
+//            }
 //        }
 
-        addPerson.setOnClickListener {
-            createPerson(Person("Sandesh", "Pune", Gender.MALE.type)) {
-                updatePersonList(recyclerView)
-            }
-        }
+        presenter.getPersonList()
 
         return view
     }
@@ -66,6 +71,14 @@ class PeoplesFragment : Fragment() {
             onSuccess.invoke()
         }
 
+    }
+
+    override fun handleProgressBarVisibility(visible: Boolean) {
+        progressbar.isVisible = visible
+    }
+
+    override fun renderPeoplesList(persons: ArrayList<Person>) {
+        recyclerView.adapter = PersonAdapter(ArrayList(persons))
     }
 
 }

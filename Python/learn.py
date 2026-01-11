@@ -139,15 +139,30 @@ print("Steps:", steps)
 
 """
 
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
+# a = int(input("Enter first number: "))
+# b = int(input("Enter second number: "))
 
-sum = a + b
-product = a * b
-subtraction = a - b
-division = a / b
+# sum = a + b
+# subtraction = a - b
 
-print("Sum:", sum)
-print("Product:", product)
-print("Subtraction:", subtraction)
-print("Division:", division)
+# if b != 0:
+#     division = a / b
+#     product = a * b
+# else:
+#     division = "Undefined (division by zero)"
+#     product = a * b
+
+# print("Sum:", sum)
+# print("Product:", product)
+# print("Subtraction:", subtraction)
+# print("Division:", division)
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+g = int(input("Enter a number: "))
+print("Factorial of", g, "is", factorial(g))
+
