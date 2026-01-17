@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    int a = 5;
+    int a;
+    printf("Enter a number: ");
+    scanf("%d", &a);
     int *pint = &a;
 
     printf("Value of a: %d\n", a);
