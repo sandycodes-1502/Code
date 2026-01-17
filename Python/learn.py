@@ -157,12 +157,67 @@ print("Steps:", steps)
 # print("Subtraction:", subtraction)
 # print("Division:", division)
 
-def factorial(n):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
+# def factorial(n):
+#     if n == 0 or n == 1:
+#         return 1
+#     else:
+#         return n * factorial(n - 1)
 
-g = int(input("Enter a number: "))
-print("Factorial of", g, "is", factorial(g))
+# g = int(input("Enter a number: "))
+# print("Factorial of", g, "is", factorial(g))
+
+
+# beatles = []
+
+# # step 1
+# print("Step 1:", beatles)
+
+# beatles.append("John Lennon")
+# beatles.append("Paul McCartney")
+# beatles.append("George Harrison")
+
+# # step 2
+# print("Step 2:", beatles)
+# for i in range(2):
+#     beatles.append(input(print("Enter band member name: ")))
+
+
+# # step 3
+# print("Step 3:", beatles)
+
+# del(beatles[3], beatles[3])
+# # step 4
+# print("Step 4:", beatles)
+
+# beatles.insert(0, "Ringo Starr")
+# # step 5
+# print("Step 5:", beatles)
+
+
+# # testing list legth
+# print("The Fab", len(beatles))
+
+# Bubble Sort
+
+# my_list = [8, 10, 6, 2, 4]  # list to sort 
+
+# for i in range(len(my_list) - 1):  # we need (5 - 1) comparisons
+#     if my_list[i] > my_list[i + 1]:  # compare adjacent elements
+#         my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]  # If we end up here, we have to swap the elements.
+
+# print(my_list)
+
+my_list = [8, 10, 6, 2, 4]  # list to sort
+swapped = True  # It's a little fake, we need it to enter the while loop.
+
+while swapped:
+    swapped = False  # no swaps so far
+    for i in range(len(my_list) - 1):
+        if my_list[i] > my_list[i + 1]:
+            swapped = True  # a swap occurred!
+            my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]
+
+print(my_list)
+
+
 
