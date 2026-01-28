@@ -206,7 +206,7 @@ print("Steps:", steps)
 #         my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]  # If we end up here, we have to swap the elements.
 
 # print(my_list)
-
+"""
 my_list = [8, 10, 6, 2, 4]  # list to sort
 swapped = True  # It's a little fake, we need it to enter the while loop.
 
@@ -219,5 +219,20 @@ while swapped:
 
 print(my_list)
 
+"""
+
+# vals = [0,1,2]
+# vals.insert(0,1)
+# del vals[1]
+# print(vals.__add__)
+
+# x = 1
+# x = x == x
+# print(x)
 
 
+list1 = [1,2,3]
+list2 = []
+for v in list1:
+    list2.insert(0,v)
+print(list2)
