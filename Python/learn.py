@@ -231,8 +231,23 @@ print(my_list)
 # print(x)
 
 
-list1 = [1,2,3]
-list2 = []
-for v in list1:
-    list2.insert(0,v)
-print(list2)
+# list1 = [1,2,3]
+# list2 = []
+# for v in list1:
+#     list2.insert(0,v)
+# print(list2)
+
+score = float(input("Enter your score: "))
+if score > 10.0 or score < 0.0:
+    print("wrong input")
+
+elif score >= 0.9:
+    print("Your grade is 'A'")
+elif score >= 0.8:
+    print("Your grade is 'B'")
+elif score >= 0.7:
+    print("Your grade is 'C'")
+elif score >= 0.6:
+    print("Your grade is 'D'")
+else:
+    print("Your grade is 'F'")
